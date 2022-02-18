@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Login Page in HTML with CSS Code Example</title>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="/static/s2.css">
+  <script language="javascript">
+
+	function show()
+	{
+		var uname = document.getElementById("name").value;
+		var pwd = document.getElementById("pwd").value;
+		if(uname==''){
+			alert("username-missing")
+			return false;
+		}
+		else if(pwd.length==''||pwd.length < 6)
+		{
+			alert("Password min length is 6.");
+			return false;
+		}
+
+
+		return true;
+	
+	}
+</script>
+  
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="box-form" >
+	<div class="left" style="background-image: url(/static/login_bg.jpg);background-size: cover;
+	background-repeat: no-repeat;overflow: hidden;">
+		<div class="overlay">
+		<h1>Chatbot V1.1</h1>
+		<l> </l>
+		<h2><i>Happy to chat with you !</i></h2>
+		<br></br>
+		<br></br>
+		<span>
+			<p>Login with social media</p>
+			<a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+			<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+	</span>
+		</div>
+	</div>
+	
+	
+		<div class="right">
+		<h5>Login</h5>
+		<p>Don't have an account? <a href="signup">Creat Your Account</a> it takes less than a minute</p>
+		
+		<form action="login" method="POST" name="myform" onSubmit="return show()">
+			<div class="inputs">
+				<input type="text"id="name" placeholder="user name" name="name">
+				<br>
+				<input type="password" id="pwd"placeholder="password" name="pwd">
+			</div>
+			<input class="input1" type="submit" value="Login">
+		</form>
+	
+			
+			<br><br>
+			
+			
+			<br>
+			
+			
+			 
+	</div>
+	
+</div>
+<!-- partial -->
+  
+</body>
+</html>
