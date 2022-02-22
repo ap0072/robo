@@ -5,6 +5,10 @@
   <title>Login Page in HTML with CSS Code Example</title>
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="/static/s2.css">
+  <meta name="google-signin-scope" content="profile email">
+  <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+
   <script language="javascript">
 
 	function show()
@@ -21,7 +25,11 @@
 			return false;
 		}
 
-
+		// var xmlhttp;
+		// xmlhttp=new XMLHttpRequest();
+		// xmlhttp.open("GET","nm="+document.getElementById("name").value+"&pwd="+document.getElementById("pwd").value,false);
+		// xmlhttp.send(null);
+		// $.post("/", { msg: uname })
 		return true;
 	
 	}
@@ -43,7 +51,8 @@
 			<p>Login with social media</p>
 			<a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
 			<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-	</span>
+			
+		</span>
 		</div>
 	</div>
 	
@@ -61,7 +70,23 @@
 			<input class="input1" type="submit" value="Login">
 		</form>
 	
-			
+		<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+		<script>
+		  function onSignIn(googleUser) {
+			// Useful data for your client-side scripts:
+			var profile = googleUser.getBasicProfile();
+			console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+			console.log('Full Name: ' + profile.getName());
+			console.log('Given Name: ' + profile.getGivenName());
+			console.log('Family Name: ' + profile.getFamilyName());
+			console.log("Image URL: " + profile.getImageUrl());
+			console.log("Email: " + profile.getEmail());
+		
+			// The ID token you need to pass to your backend:
+			var id_token = googleUser.getAuthResponse().id_token;
+			console.log("ID Token: " + id_token);
+		  }
+		</script>
 			<br><br>
 			
 			
@@ -73,6 +98,6 @@
 	
 </div>
 <!-- partial -->
-  
+
 </body>
 </html>

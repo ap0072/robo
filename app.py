@@ -25,9 +25,9 @@ app.config['SECRET_KEY'] = "random string"
 db = SQLAlchemy(app)
 
 class databasesqlite(db.Model):
-   
-   name = db.Column(db.String(100),primary_key = True)
-   pwd = db.Column(db.String(50),primary_key=True)
+   id = db.Column('student_id', db.Integer, primary_key = True)
+   name = db.Column(db.String(100))
+   pwd = db.Column(db.String(50))
    email=db.Column(db.String(50))
    no=db.Column(db.String(50))
    
@@ -49,6 +49,8 @@ english_bot = ChatBot('Bot',
 ],
 trainer='chatterbot.trainers.ListTrainer')
 english_bot.set_trainer(ListTrainer)
+
+
 for file in os.listdir('data'):
     convData = open('data/' + file).readlines()
     english_bot.train(convData)
@@ -63,8 +65,7 @@ def login_post():
     name=request.form['name']
     password=request.form['pwd']
 
-    cursor=databasesqlite.query.filter_by(name=name);
-    print(cursor)
+    cursor=databasesqlite.query.filter_by(name=name,pwd=password).all()
     if cursor:
         return render_template('sampleNLP.html')
     else:
