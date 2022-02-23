@@ -95,17 +95,17 @@ def signup():
 def get_bot_response():
     userText = request.args.get('msg')
     # print(userText) 
-    # result=translator.translate(str(userText), dest='en')
-    # userText1=result.text
+    result=translator.translate(str(userText), dest='en')
+    userText1=result.text
     # print(userText1)
     response = str(english_bot.get_response(userText))
 
 
-    # response=translator.translate(response, dest=result.src)
+    response=translator.translate(response, dest=result.src)
 
-    return str(response)
+    return str(response.text)
 
 if __name__ == "__main__":
     db.create_all()
     
-    app.run(host='0.0.0.0')
+    app.run(host='127.0.0.1')

@@ -8,14 +8,14 @@
   background-repeat: no-repeat;overflow: hidden;">
     <h1 style="color: white;">Automated Healthcare Chatbot</h1>
     <div>
-      <div id="chatbox">
+      <div id="chatbox"  class="overlay">
        
         <p class="botText"><span>Hi There! I'm Chitti your chatbot</span></p>
         <p class="botText"><span> What is your name?</span></p>
       </div>
-      <div id="userInput">
+      <div id="userInput"  class="overlay">
         <input id="textInput" type="text" name="msg" placeholder="Message">
-        <input id="buttonInput" type="submit" value="Send">
+        <!-- <input id="buttonInput" type="submit" value="Send"> -->
       </div>
       
       <script>
@@ -51,11 +51,11 @@
                 getBotResponse();
             }
         });
-        $("#buttonInput").click(function() {
+        // $("#buttonInput").click(function() {
 
-          getBotResponse();
+        //   getBotResponse();
           
-        })
+        // })
       </script>
     </div>
    
