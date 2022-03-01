@@ -10,15 +10,27 @@
     <div>
       <div id="chatbox"  class="overlay">
        
-        <p class="botText"><span>Hi There! I'm Chitti your chatbot</span></p>
-        <p class="botText"><span> What is your name?</span></p>
+        <p class="botText" id="greetText"><span style="text-transform: capitalize;">Hello {{name}}, I'm Chitti</span><span>your healthcare chatbot</span></p>
+        <p class="botText" id="greetText"><span> Happy to help you!</span></p>
       </div>
       <div id="userInput"  class="overlay">
-        <input id="textInput" type="text" name="msg" placeholder="Message">
-        <!-- <input id="buttonInput" type="submit" value="Send"> -->
+        <input id="textInput" type="text" name="msg" placeholder="Message" autofocus>
+        <input id="buttonInput" type="submit" value="Send">
       </div>
       
       <script>
+        function greetings() 
+            {
+            // var botHtml = '<p class="botText"><span>' + data + '</span></p>';
+            data="Hello {{name}}, I am Chitti , your healthcare chatbot  Happy to help you!"
+            var voices = [];
+            voices = window.speechSynthesis.getVoices();
+            var msg1 = new SpeechSynthesisUtterance();
+            msg1.text = data;
+            msg1.voice = voices[0];
+            window.speechSynthesis.speak(msg1);
+        }
+
         function getBotResponse() 
         {
           var rawText = $("#textInput").val();
@@ -45,17 +57,19 @@
           
             );
         }
-
+        
+      
+        greetings();
         $("#textInput").keypress(function(e) {
             if(e.which == 13) {
                 getBotResponse();
             }
         });
-        // $("#buttonInput").click(function() {
+        $("#buttonInput").click(function() {
 
-        //   getBotResponse();
+          getBotResponse();
           
-        // })
+        })
       </script>
     </div>
    

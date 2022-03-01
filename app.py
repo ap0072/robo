@@ -16,11 +16,14 @@ from googletrans import Translator
 translator = Translator()
 
 
+# import demoji
+# demoji.download_codes()
 
 
 app=Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///databasesqlite.sqlite3'
 app.config['SECRET_KEY'] = "random string"
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
@@ -67,7 +70,8 @@ def login_post():
 
     cursor=databasesqlite.query.filter_by(name=name,pwd=password).all()
     if cursor:
-        return render_template('sampleNLP.html')
+        nam=name
+        return render_template('sampleNLP.html',name=name)
     else:
         return render_template('create-account.html')
 
@@ -76,14 +80,19 @@ def login_post():
 def signup_post():
 
         account = databasesqlite(request.form['name'], request.form['pwd'],request.form['email'],request.form['no'])
-         
-        db.session.add(account)
-        db.session.commit()
-        return render_template('index.html')
+        user= databasesqlite.query.filter_by(name=request.form['name']).first()
+        if user:
+            print("user already existed")
+            return render_template('create-account.html')
+        else:
+            db.session.add(account)
+            db.session.commit()
+            return render_template('index.html')
         
 
 @app.route('/chatbot')
 def chatbot():
+
     return render_template('sampleNLP.html')
 
 
@@ -91,19 +100,22 @@ def chatbot():
 def signup():
     return render_template('create-account.html')
 
+
+
 @app.route("/get")
 def get_bot_response():
     userText = request.args.get('msg')
-    # print(userText) 
-    result=translator.translate(str(userText), dest='en')
-    userText1=result.text
+    print(userText) 
+    # result=translator.translate(str(userText), dest='en')
+    # userText1=result.text
     # print(userText1)
     response = str(english_bot.get_response(userText))
 
 
-    response=translator.translate(response, dest=result.src)
+    # response=translator.translate(response, dest=result.src)
 
-    return str(response.text)
+        
+    return str(response)
 
 if __name__ == "__main__":
     db.create_all()

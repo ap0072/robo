@@ -1,6 +1,7 @@
 body {
-    font-family: Garamond;
+    font-family: "Open Sans", sans-serif;
     background-image: linear-gradient(135deg, #FAB2FF 10%, #1904E5 100%);
+    
 }
 
 h1 {
@@ -36,22 +37,23 @@ h3 {
     width: 87%;
     border: none;
     border-bottom: 3px solid #009688;
-    font-family: monospace;
+    font-family: "Open Sans", sans-serif;
     font-size: 17px;
 }
 
 #buttonInput {
     padding: 3px;
-    font-family: monospace;
+    font-family: "Open Sans", sans-serif;
     font-size: 17px;
 }
 
 .userText {
     color: white;
-    font-family: monospace;
+    font-family: "Open Sans", sans-serif;
     font-size: 17px;
     text-align: right;
     line-height: 30px;
+
 }
 
 .userText span {
@@ -62,17 +64,23 @@ h3 {
 
 .botText {
     color: white;
-    font-family: monospace;
+    font-family: "Open Sans", sans-serif;
     font-size: 17px;
     text-align: left;
     line-height: 30px;
+    font-style: italic;
 }
+
 
 .botText span {
     background-color: #EF5350;
     padding: 10px;
     border-radius: 2px;
+
 }
+
+
+
 
 .bg {
     width: 100%;
