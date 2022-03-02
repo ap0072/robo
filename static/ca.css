@@ -69,19 +69,19 @@ body {
     position: relative;
     margin-left: 30px;
   }
-  
+/*   
   label::before {
     content: ' \f00c';
     position: absolute;
     font-family: FontAwesome;
     background: transparent;
+    color: transparent;
     border: 3px solid #70F570;
     border-radius: 4px;
-    color: transparent;
     left: 790px;
     transition: all 0.2s linear;
   }
-  
+   */
   label:hover::before {
     font-family: FontAwesome;
     content: ' \f00c';

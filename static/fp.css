@@ -69,7 +69,7 @@ body {
     position: relative;
     margin-left: 30px;
   }
-  
+/*   
   label::before {
     content: ' \f00c';
     position: absolute;
@@ -81,7 +81,7 @@ body {
     left: 790px;
     transition: all 0.2s linear;
   }
-  
+   */
   label:hover::before {
     font-family: FontAwesome;
     content: ' \f00c';

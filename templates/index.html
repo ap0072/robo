@@ -39,12 +39,12 @@
 <body>
 <!-- partial:index.partial.html -->
 <div class="box-form" >
-	<div class="left" style="background-image: url(/static/login_bg.jpg);background-size: cover;
+	<div class="left" style="background-image: url(/static/robomoving.gif);background-size: auto;background-position:bottom;
 	background-repeat: no-repeat;overflow: hidden;">
 		<div class="overlay">
-		<h1>Chatbot V1.1</h1>
+		<h1 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">ChatBot</h1>
 		<l> </l>
-		<h2><i>Happy to chat with you !</i></h2>
+		<h2><i style="color: black;">Happy to chat with you !</i></h2>
 		<br></br>
 		<br></br>
 		<span>
@@ -53,8 +53,14 @@
 			<br>
 			<br>
 			<br>
+			<br>
 
-			<p style="font-size:18px;">Follow us on social media</p>
+			<br>
+			<br>
+			<br>
+			<br>
+
+			<p style="font-size:18px;color: black;">Follow us on social media</p>
 			<a href="https://www.facebook.com/Chatbot-V11-105781015380460"><i class="fa fa-facebook" aria-hidden="true"></i></a>
 			<a href="https://twitter.com/"><i class="fa fa-twitter" aria-hidden="true"></i></a>
 			
@@ -64,12 +70,12 @@
 	
 	
 		<div class="right">
-		<h5>Login</h5>
-		<p style="font-size:20px;">Don't have an account?<a href="signup">Creat Your Account </a><br></p>
+		<h5 style="text-align: center;">Login</h5>
+		<p style="font-size:20px;color: black;">Don't you have an account? <a href="signup" style="color: blue;">Creat Your Account </a><br></p>
 		
 		{%- for category, message in get_flashed_messages(with_categories = true) %}
 		<div class = "alert alert-danger">
-		   <p style="color: brown;font-size: large;">{{ message }}</p>
+		   <p style=" color: red;font-size: large;">{{ message }}</p>
 		</div>
 	 {%- endfor %}
 
@@ -83,7 +89,7 @@
 			
 
 			<div>
-				<p style="font-size:18px;"><a href='forget'>forget password?</a></p>
+				<p style="font-size:18px;color: black;"><a  href="forget" style="color: blue;">forget password?</a></p>
 				<button style="font-size:20px;">Signin</button></div>
 		</form>
 		
