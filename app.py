@@ -74,10 +74,10 @@ def login_post():
     
     if cursor:
         return render_template('sampleNLP.html',name=name)
-    elif (cursor12) or (cursor34):
-        flash("Incorrect Username or Password")
+    elif (cursor12):
+        flash("Incorrect Password")
     else:
-        flash("Account doesn't exists")
+        flash("User name doesn't exists")
     return render_template('index.html')
 
 @app.route('/update',methods=["POST"])
@@ -109,6 +109,7 @@ def signup_post():
             # flash("Account created successfully")
             db.session.add(account)
             db.session.commit()
+            flash("Account created Successfully")
             return render_template('index.html')
         
 @app.route('/chatbot')
