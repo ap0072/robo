@@ -54,9 +54,9 @@ trainer='chatterbot.trainers.ListTrainer')
 english_bot.set_trainer(ListTrainer)
 
 
-for file in os.listdir('data'):
-    convData = open('data/' + file).readlines()
-    english_bot.train(convData)
+# for file in os.listdir('data'):
+#     convData = open('data/' + file).readlines()
+#     english_bot.train(convData)
 
 
 @app.route('/')
@@ -69,12 +69,32 @@ def login_post():
     password=request.form['pwd']
 
     cursor=databasesqlite.query.filter_by(name=name,pwd=password).all()
+    cursor12=databasesqlite.query.filter_by(name=name).first()
+    cursor34=databasesqlite.query.filter_by(pwd=password).first()
+    
     if cursor:
-        nam=name
         return render_template('sampleNLP.html',name=name)
+    elif (cursor12) or (cursor34):
+        flash("Incorrect Username or Password")
     else:
-        return render_template('create-account.html')
+        flash("Account doesn't exists")
+    return render_template('index.html')
 
+@app.route('/update',methods=["POST"])
+def login_get():
+    name=request.form['name']
+    password=request.form['pwd']
+
+    cursor=databasesqlite.query.filter_by(name=name).first()
+    if not cursor:
+        flash("Account doesn't exists")
+    else:
+        #update database record for password column to particular user
+        rows_updated = databasesqlite.query.filter_by(name=name).update(dict(pwd=password))
+        db.session.commit()
+        flash("Password changed Successfully")
+        return render_template('index.html')
+    return render_template('forgetpassword.html')
 
 @app.route('/signup',methods=["POST"])
 def signup_post():
@@ -82,14 +102,15 @@ def signup_post():
         account = databasesqlite(request.form['name'], request.form['pwd'],request.form['email'],request.form['no'])
         user= databasesqlite.query.filter_by(name=request.form['name']).first()
         if user:
-            print("user already existed")
+            flash("user already exists")
             return render_template('create-account.html')
+
         else:
+            # flash("Account created successfully")
             db.session.add(account)
             db.session.commit()
             return render_template('index.html')
         
-
 @app.route('/chatbot')
 def chatbot():
 
@@ -100,6 +121,9 @@ def chatbot():
 def signup():
     return render_template('create-account.html')
 
+@app.route('/forget')
+def forgetpage():
+    return render_template('forgetpassword.html')
 
 
 @app.route("/get")

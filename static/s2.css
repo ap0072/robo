@@ -86,6 +86,12 @@ body {
   font-size: 6vmax;
   line-height: 0;
 }
+.box-form .right h4 {
+  color: black;
+  font-size:larger;
+  line-height: 0;
+}
+
 .box-form .right p {
   font-size: 14px;
   color: #B0B3B9;
@@ -113,6 +119,35 @@ body {
   width: auto;
 }
 .box-form .right input1 {
+  float: right;
+  color: #fff;
+  font-size: 16px;
+  padding: 12px 35px;
+  border-radius: 50px;
+  display: inline-block;
+  border: 0;
+  outline: 0;
+  box-shadow: 0px 4px 20px 0px #49c628a6;
+  background-image: linear-gradient(135deg, #70F570 10%, #49C628 100%);
+}
+.box-form .right button {
+  float: right;
+  color: #fff;
+  font-size: 16px;
+  padding: 12px 35px;
+  border-radius: 50px;
+  display: inline-block;
+  border: 0;
+  outline: 0;
+  box-shadow: 0px 4px 20px 0px #49c628a6;
+  background-image: linear-gradient(135deg, #70F570 10%, #49C628 100%);
+}
+#buttonInput {
+    padding: 3px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 17px;
+}
+.box-form .right input2 {
   float: right;
   color: #fff;
   font-size: 16px;
