@@ -101,7 +101,7 @@ def signup_post():
         account = databasesqlite(request.form['name'], request.form['pwd'],request.form['email'],request.form['no'])
         user= databasesqlite.query.filter_by(name=request.form['name']).first()
         if user:
-            flash("user already exists")
+            flash("User already exists")
             return render_template('create-account.html')
 
         else:

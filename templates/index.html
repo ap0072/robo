@@ -48,7 +48,13 @@
 		<br></br>
 		<br></br>
 		<span>
-			<p>Follow us on social media</p>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+
+			<p style="font-size:18px;">Follow us on social media</p>
 			<a href="https://www.facebook.com/Chatbot-V11-105781015380460"><i class="fa fa-facebook" aria-hidden="true"></i></a>
 			<a href="https://twitter.com/"><i class="fa fa-twitter" aria-hidden="true"></i></a>
 			
@@ -59,7 +65,7 @@
 	
 		<div class="right">
 		<h5>Login</h5>
-		<p>Don't have an account? <a href="signup">Creat Your Account</a> it takes less than a minute</p>
+		<p style="font-size:20px;">Don't have an account?<a href="signup">Creat Your Account </a><br></p>
 		
 		{%- for category, message in get_flashed_messages(with_categories = true) %}
 		<div class = "alert alert-danger">
@@ -69,12 +75,16 @@
 
 		<form action="login" method="POST" name="myform" onSubmit="return show()">
 			<div class="inputs">
-				<input type="text"id="name" placeholder="user name" name="name">
-				<br>
-				<input type="password" id="pwd"placeholder="password" name="pwd">
+				<input style="font-size: larger;border-radius: 50px;background-image: linear-gradient(280deg,rgb(85, 224, 85) 10%,yellow);text-align: center;" type="text"id="name" placeholder=" Enter your user name :-)" name="name">
+			
+				<input style="font-size: larger;border-radius: 50px;background-image: linear-gradient(280deg,yellow 10%,rgb(85, 224, 85));text-align: center;" type="password" id="pwd"placeholder=" Enter your password :-)" name="pwd">
 			</div>
 			<br>
-			<div><button>Login</button></div>
+			
+
+			<div>
+				<p style="font-size:18px;"><a href='forget'>forget password?</a></p>
+				<button style="font-size:20px;">Signin</button></div>
 		</form>
 		
 			<br>
@@ -95,7 +105,7 @@
 				console.log("ID Token: " + id_token);
 			  }
 			</script>  -->
-			<p><a href='forget'>forget password?</a></p>
+			
 	</div>
 	
 </div>
