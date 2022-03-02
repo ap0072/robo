@@ -70,7 +70,6 @@ def login_post():
 
     cursor=databasesqlite.query.filter_by(name=name,pwd=password).all()
     cursor12=databasesqlite.query.filter_by(name=name).first()
-    cursor34=databasesqlite.query.filter_by(pwd=password).first()
     
     if cursor:
         return render_template('sampleNLP.html',name=name)

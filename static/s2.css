@@ -37,6 +37,13 @@ body {
   background-image: url(/static/login_bg.jpg);
   overflow: hidden;
 }
+.box-form .center {
+  color: #f6eeee;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url(/static/login_bg.jpg);
+  overflow: hidden;
+}
 
 .box-form .left .overlay {
   color: #f6eeee;
@@ -107,6 +114,7 @@ body {
   border: none;
   outline: none;
   border-bottom: 2px solid #B0B3B9;
+  
 }
 .box-form .right .remember-me--forget-password {
   display: flex;
