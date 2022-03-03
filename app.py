@@ -54,9 +54,9 @@ trainer='chatterbot.trainers.ListTrainer')
 english_bot.set_trainer(ListTrainer)
 
 
-# for file in os.listdir('data'):
-#     convData = open('data/' + file).readlines()
-#     english_bot.train(convData)
+for file in os.listdir('data'):
+    convData = open('data/' + file).readlines()
+    english_bot.train(convData)
 
 
 @app.route('/')
