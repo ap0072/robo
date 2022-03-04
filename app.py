@@ -46,15 +46,17 @@ english_bot = ChatBot(
     'Bot',logic_adapters=[{'import_path': 'chatterbot.logic.BestMatch'}],
     )
 
-# english_bot.set_trainer(ListTrainer)
+english_bot.set_trainer(ListTrainer)
 
 
-# for file in os.listdir('data'):
-#     convData = open('data/' + file).readlines()
-#     english_bot.train(convData)
+for file in os.listdir('data'):
+    convData = open('data/' + file).readlines()
+    english_bot.train(convData)
 
-trainer=ChatterBotCorpusTrainer(english_bot)
-trainer.train("chatterbot.corpus.english")
+english_bot.set_trainer(ChatterBotCorpusTrainer)
+
+english_bot.train("chatterbot.corpus.english")
+english_bot.train("chatterbot.corpus.telugu")
 
 @app.route('/')
 def login():
